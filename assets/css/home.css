@@ -1,0 +1,53 @@
+body {
+  background-color: #f0f0f0;
+}
+h1{
+  width: 100%;
+}
+.color_primary{
+  color: #8201ff;
+}
+.color_secondary{
+  color: #333;
+}
+.btn{
+  background-color: #8201ff !important;
+  border: 1px solid #8201ff !important;
+}
+.btn:hover{
+opacity: 0.7;
+}
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+.flex_btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Custom modal backdrop style */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.3) !important; /* Adjusted opacity to 0.3 */
+}
+.modal-content{
+  border: none !important;
+}
+.bi-trash3,
+.bi-plus-lg,
+.bi-arrow-clockwise,
+.bi-box-arrow-up-right{
+  font-size: 20px;
+}
+.bi-trash3:hover,
+.bi-arrow-clockwise:hover,
+.bi-box-arrow-up-right:hover{
+  color: #8201ff;
+}
+.text-bg-success{
+  background-color: #b466ff !important;
+}
+.text-bg-danger {
+  background-color: #ff4545 !important;
+}
