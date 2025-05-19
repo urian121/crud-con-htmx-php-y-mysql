@@ -12,7 +12,7 @@ date_default_timezone_set('America/Bogota');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'crud_htmx_php');
 define('DB_USER', 'root');
-define('DB_PASSWORD', '4825');
+define('DB_PASSWORD', '');
 
 
 // DEFINIR RUTAS ABSOLUTAS

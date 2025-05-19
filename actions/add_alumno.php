@@ -19,7 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <strong>¡Éxito!</strong> El alumno ha sido registrado correctamente.
     </div>';
 
-        // En lugar de mostrar solo el mensaje de éxito
         // Hacemos una petición para obtener la tabla actualizada
         $tabla = file_get_contents('get_alumnos.php');
 

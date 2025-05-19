@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CRUD con HTMX PHP y MySQL</title>
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
     <link
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
         rel="stylesheet"
@@ -40,7 +41,7 @@
             <div class="col-md-12">
                 <div class="table-responsive" id="table-responsive"
                     hx-get="actions/get_alumnos.php"
-                    hx-trigger="load"
+                    hx-trigger="load, reloadTable from:body"
                     hx-target="this">
                 </div>
             </div>
@@ -59,6 +60,14 @@
                         }
                     }
                 });
+
+                // Función para recargar la tabla después de agregar un alumno
+                function recargarTabla() {
+                    const tabla = document.querySelector('#table-responsive');
+                    if (tabla) {
+                        htmx.trigger(tabla, 'load');
+                    }
+                }
             </script>
 </body>
 
