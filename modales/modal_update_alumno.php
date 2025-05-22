@@ -11,8 +11,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
   id="modal_update_alumno"
   tabindex="-1"
   aria-labelledby="modal_update_alumno_title"
-  aria-hidden="true"
->
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -23,11 +22,10 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
           type="button"
           class="btn-close"
           data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+          aria-label="Close"></button>
       </div>
       <div class="modal-body">
-         <form
+        <form
           method="POST"
           hx-post="actions/update_alumno.php"
           hx-target="#modal_container"
@@ -49,8 +47,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
                 // htmx.ajax('GET', 'actions/get_alumnos.php', {target: '#table-responsive', swap: 'innerHTML'});
               }
             }
-          "
-        >
+          ">
           <input type="hidden" name="_method" value="PUT">
           <input type="text" name="id" value="<?php echo $idAlumno; ?>" hidden>
           <div class="mb-3">
@@ -61,8 +58,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
               class="form-control"
               id="nombre"
               value="<?php echo $infoAlumno['nombre']; ?>"
-              required
-            />
+              required />
           </div>
           <div class="mb-3">
             <label for="email" class="form-label float-start">Email</label>
@@ -72,8 +68,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
               class="form-control"
               id="email"
               value="<?php echo $infoAlumno['email']; ?>"
-              required
-            />
+              required />
           </div>
 
           <div class="mb-3">
@@ -97,11 +92,8 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
                 name="sexo"
                 id="radioMasculino"
                 value="Masculino"
-                <?php if ($infoAlumno['sexo'] == 'Masculino') echo 'checked'; ?>
-              />
-              <label class="form-check-label" for="radioMasculino"
-                >Masculino</label
-              >
+                <?php if ($infoAlumno['sexo'] == 'Masculino') echo 'checked'; ?> />
+              <label class="form-check-label" for="radioMasculino">Masculino</label>
             </div>
             <div class="form-check">
               <input
@@ -110,11 +102,8 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
                 name="sexo"
                 id="radioFemenino"
                 value="Femenino"
-                <?php if ($infoAlumno['sexo'] == 'Femenino') echo 'checked'; ?>
-              />
-              <label class="form-check-label" for="radioFemenino"
-                >Femenino</label
-              >
+                <?php if ($infoAlumno['sexo'] == 'Femenino') echo 'checked'; ?> />
+              <label class="form-check-label" for="radioFemenino">Femenino</label>
             </div>
             <div class="form-check">
               <input
@@ -123,8 +112,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
                 name="sexo"
                 id="radioOtro"
                 value="Otro"
-                <?php if ($infoAlumno['sexo'] == 'Otro') echo 'checked'; ?>
-              />
+                <?php if ($infoAlumno['sexo'] == 'Otro') echo 'checked'; ?> />
               <label class="form-check-label" for="radioOtro">Otro</label>
             </div>
           </div>
@@ -138,8 +126,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
                 role="switch"
                 id="habla_ingles"
                 name="habla_ingles"
-                <?php if ($infoAlumno['habla_ingles'] == 'Sí') echo 'checked'; ?>
-              />
+                <?php if ($infoAlumno['habla_ingles'] == 'Sí') echo 'checked'; ?> />
               <label class="form-check-label" for="habla_ingles">Sí</label>
             </div>
           </div>
@@ -148,8 +135,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
             <button
               type="button"
               class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
+              data-bs-dismiss="modal">
               Cerrar
               <i class="bi bi-x-lg"></i>
             </button>
