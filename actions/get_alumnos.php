@@ -20,7 +20,7 @@ include("../actions/functions.php"); ?>
         $alumnos = getAlumnos($servidor);
         foreach ($alumnos as $alumno) {
         ?>
-            <tr>
+            <tr id="alumno_<?php echo $alumno['id_alumno']; ?>">
                 <th><?php echo $alumno['id_alumno']; ?></th>
                 <td><?php echo $alumno['nombre']; ?></td>
                 <td><?php echo $alumno['email']; ?></td>
@@ -35,30 +35,28 @@ include("../actions/functions.php"); ?>
                 <td>
                     <div class="flex_btns">
                         <a href="#"
-                        hx-get="modales/modal_view_alumno.php"
-                        hx-target="#modal_container"
-                        hx-swap="innerHTML"
-                        hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
-                        hx-trigger="click"
-                        >
+                            hx-get="modales/modal_view_alumno.php"
+                            hx-target="#modal_container"
+                            hx-swap="innerHTML"
+                            hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
+                            hx-trigger="click">
                             <i class="bi bi-box-arrow-up-right"></i>
                         </a>
                         <a href="#"
-                        hx-get="modales/modal_update_alumno.php"
-                        hx-target="#modal_container"
-                        hx-swap="innerHTML"
-                        hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
-                        hx-trigger="click"
-                        >
+                            hx-get="modales/modal_update_alumno.php"
+                            hx-target="#modal_container"
+                            hx-swap="innerHTML"
+                            hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
+                            hx-trigger="click">
                             <i class="bi bi-arrow-clockwise"></i>
                         </a>
                         <a
                             href="#"
-                            hx-delete="actions/delete_alumno.php?id=<?php echo $alumno['id_alumno']; ?>"
-                            hx-target="closest tr"
-                            hx-swap="delete"
-                            hx-confirm="¿Estás seguro de que deseas eliminar este alumno?"
-                            hx-on:htmx:beforeRequest="this.closest('tr').classList.add('table-danger')">
+                            hx-get="modales/modal_delete.php"
+                            hx-target="#modal_container"
+                            hx-swap="innerHTML"
+                            hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
+                            hx-trigger="click">
                             <i class="bi bi-trash3"></i>
                         </a>
                     </div>

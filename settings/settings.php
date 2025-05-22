@@ -12,12 +12,11 @@ date_default_timezone_set('America/Bogota');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'crud_htmx_php');
 define('DB_USER', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', '4825');
 
 
 // DEFINIR RUTAS ABSOLUTAS
 $projectPath = str_replace('\\', '/', __DIR__);
-$projectPath = str_replace('settings', '', $projectPath);
 define('BASE_PATH_HOME', $projectPath);
 define('BASE_PATH_COMPONENTS', BASE_PATH_HOME . 'components');
 define('BASE_PATH_MIDDLEWARE', BASE_PATH_HOME . 'middlewares');
