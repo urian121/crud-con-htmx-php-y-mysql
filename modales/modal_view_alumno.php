@@ -4,7 +4,7 @@ require_once("../settings/conn.php");
 include("../actions/functions.php");
 
 $idAlumno = isset($_GET['id']) ? $_GET['id'] : null;
-$infoAlumno = getAlumno($servidor, $idAlumno);
+$infoAlumno = getAlumnoId($servidor, $idAlumno);
 
 ?>
 <div

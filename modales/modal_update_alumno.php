@@ -4,7 +4,7 @@ require_once("../settings/conn.php");
 include("../actions/functions.php");
 
 $idAlumno = isset($_GET['id']) ? $_GET['id'] : null;
-$infoAlumno = getAlumno($servidor, $idAlumno);
+$infoAlumno = getAlumnoId($servidor, $idAlumno);
 ?>
 <div
   class="modal fade"
@@ -28,26 +28,8 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
         <form
           method="POST"
           hx-post="actions/update_alumno.php"
-          hx-target="#modal_container"
-          hx-swap="innerHTML"
-          hx-swap-duration="500"
-          hx-on:htmx:after-request="
-            if (event.detail.successful) {
-              const modal = bootstrap.Modal.getInstance(document.querySelector('.modal.show'));
-              if (modal) {
-                modal.hide();
-                document.body.classList.remove('modal-open');
-                const backdrop = document.querySelector('.modal-backdrop');
-                if (backdrop) {
-                  backdrop.remove();
-                }
-                // Recargar la tabla usando HTMX
-                htmx.trigger('#table-responsive', 'load');
-                // Otra opción: forzar recarga de la tabla
-                // htmx.ajax('GET', 'actions/get_alumnos.php', {target: '#table-responsive', swap: 'innerHTML'});
-              }
-            }
-          ">
+          hx-target="#alumno_<?php echo $idAlumno; ?>"
+          hx-swap="outerHTML">
           <input type="hidden" name="_method" value="PUT">
           <input type="text" name="id" value="<?php echo $idAlumno; ?>" hidden>
           <div class="mb-3">
@@ -57,7 +39,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
               name="nombre"
               class="form-control"
               id="nombre"
-              value="<?php echo $infoAlumno['nombre']; ?>"
+              value="<?php echo htmlspecialchars($infoAlumno['nombre']); ?>"
               required />
           </div>
           <div class="mb-3">
@@ -67,19 +49,18 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
               name="email"
               class="form-control"
               id="email"
-              value="<?php echo $infoAlumno['email']; ?>"
+              value="<?php echo htmlspecialchars($infoAlumno['email']); ?>"
               required />
           </div>
 
           <div class="mb-3">
             <label for="curso" class="form-label float-start">Curso</label>
             <select name="curso" id="curso" class="form-select">
-              <option selected value="<?php echo $infoAlumno['curso']; ?>"><?php echo $infoAlumno['curso']; ?></option>
-              <option value="HTMX">HTMX</option>
-              <option value="PHP">PHP</option>
-              <option value="JS">JS</option>
-              <option value="HTML">HTML</option>
-              <option value="REACT">React</option>
+              <option value="HTMX" <?php echo $infoAlumno['curso'] == 'HTMX' ? 'selected' : ''; ?>>HTMX</option>
+              <option value="PHP" <?php echo $infoAlumno['curso'] == 'PHP' ? 'selected' : ''; ?>>PHP</option>
+              <option value="JS" <?php echo $infoAlumno['curso'] == 'JS' ? 'selected' : ''; ?>>JS</option>
+              <option value="HTML" <?php echo $infoAlumno['curso'] == 'HTML' ? 'selected' : ''; ?>>HTML</option>
+              <option value="REACT" <?php echo $infoAlumno['curso'] == 'REACT' ? 'selected' : ''; ?>>React</option>
             </select>
           </div>
 
@@ -126,7 +107,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
                 role="switch"
                 id="habla_ingles"
                 name="habla_ingles"
-                <?php if ($infoAlumno['habla_ingles'] == 'Sí') echo 'checked'; ?> />
+                <?php if ($infoAlumno['habla_ingles'] == 1) echo 'checked'; ?> />
               <label class="form-check-label" for="habla_ingles">Sí</label>
             </div>
           </div>
@@ -139,7 +120,7 @@ $infoAlumno = getAlumno($servidor, $idAlumno);
               Cerrar
               <i class="bi bi-x-lg"></i>
             </button>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">
               Actualizar
               <i class="bi bi-arrow-right"></i>
             </button>

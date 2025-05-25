@@ -1,6 +1,4 @@
 <?php
-header('Content-Type: text/html');
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('../settings/settings.php');
     require_once('../settings/conn.php');
@@ -18,11 +16,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo '<div class="alert alert-success">
         <strong>¡Éxito!</strong> El alumno ha sido registrado correctamente.
     </div>';
-
-        // Hacemos una petición para obtener la tabla actualizada
-        $tabla = file_get_contents('get_alumnos.php');
-
-        // Devolvemos la tabla actualizada
-        echo $tabla;
     }
 }
