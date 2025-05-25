@@ -45,7 +45,7 @@
             include("actions/functions.php"); ?>
 
             <div class="col-md-12">
-                <div class="table-responsive" id="table-responsive">
+                <div class="table-responsive">
                     <table class="table table-striped table-hover" id="tabla-alumnos">
                         <thead>
                             <tr>
