@@ -1,5 +1,5 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['_method']) && $_POST['_method'] === 'PUT') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once('../settings/settings.php');
     require_once('../settings/conn.php');
     require_once('functions.php');

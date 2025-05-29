@@ -26,11 +26,9 @@ $infoAlumno = getAlumnoId($servidor, $idAlumno);
       </div>
       <div class="modal-body">
         <form
-          method="POST"
           hx-post="actions/update_alumno.php"
           hx-target="#alumno_<?php echo $idAlumno; ?>"
           hx-swap="outerHTML">
-          <input type="hidden" name="_method" value="PUT">
           <input type="text" name="id" value="<?php echo $idAlumno; ?>" hidden>
           <div class="mb-3">
             <label for="nombre" class="form-label float-start">Nombre</label>
