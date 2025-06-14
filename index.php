@@ -83,7 +83,7 @@
                                         </span>
                                     </td>
                                     <td>
-                                    <div class="form-check form-switch">
+                                        <div class="form-check form-switch">
                                             <input type="checkbox" 
                                                 hx-post="actions/change_status_alumno.php" 
                                                 hx-vals="js:{
