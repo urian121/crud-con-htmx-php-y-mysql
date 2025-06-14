@@ -53,28 +53,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <td><?php echo date('d-m-Y', strtotime($alumnoNuevo['fecha_creacion'])); ?></td>
                 <td>
                     <div class="flex_btns">
-                        <a href="#" 
-                           hx-get="modales/modal_view_alumno.php" 
-                           hx-target="#modal_container" 
-                           hx-swap="innerHTML" 
-                           hx-vals='"{"id": "" . $alumnoNuevo['id_alumno'] . "}"' 
-                           hx-trigger="click">
+                        <a href="#"
+                            hx-get="modales/modal_view_alumno.php"
+                            hx-target="#modal_container"
+                            hx-swap="innerHTML"
+                            hx-vals='{"id": "<?php echo $alumnoNuevo['id_alumno']; ?>"}'
+                            hx-trigger="click">
                             <i class="bi bi-box-arrow-up-right"></i>
                         </a>
-                        <a href="#" 
-                           hx-get="modales/modal_update_alumno.php" 
-                           hx-target="#modal_container" 
-                           hx-swap="innerHTML" 
-                           hx-vals='"{"id": "" . $alumnoNuevo['id_alumno'] . "}"' 
-                           hx-trigger="click">
+                        <a href="#"
+                            hx-get="modales/modal_update_alumno.php"
+                            hx-target="#modal_container"
+                            hx-swap="innerHTML"
+                            hx-vals='{"id": "<?php echo $alumnoNuevo['id_alumno']; ?>"}'
+                            hx-trigger="click">
                             <i class="bi bi-arrow-clockwise"></i>
-                        </a>    
-                        <a href="#" 
-                           hx-get="modales/modal_delete.php" 
-                           hx-target="#modal_container" 
-                           hx-swap="innerHTML" 
-                           hx-vals='"{"id": "" . $alumnoNuevo['id_alumno'] . "}"' 
-                           hx-trigger="click">
+                        </a>
+                        <a
+                            href="#"
+                            hx-get="modales/modal_delete.php"
+                            hx-target="#modal_container"
+                            hx-swap="innerHTML"
+                            hx-vals='{"id": "<?php echo $alumnoNuevo['id_alumno']; ?>"}'
+                            hx-trigger="click">
                             <i class="bi bi-trash3"></i>
                         </a>
                     </div>
