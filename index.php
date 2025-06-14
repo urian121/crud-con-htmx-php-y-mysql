@@ -69,68 +69,9 @@
                         <tbody>
                             <?php
                             $alumnos = getListAlumnos($servidor);
-                            foreach ($alumnos as $alumno) {
-                            ?>
-                                <tr id="alumno_<?php echo $alumno['id_alumno']; ?>">
-                                    <th><?php echo $alumno['id_alumno']; ?></th>
-                                    <td><?php echo $alumno['nombre']; ?></td>
-                                    <td><?php echo $alumno['email']; ?></td>
-                                    <td><?php echo $alumno['sexo']; ?></td>
-                                    <td><?php echo $alumno['curso']; ?></td>
-                                    <td>
-                                        <span class="badge text-bg-<?php echo $alumno['habla_ingles'] === 'Sí' ? 'success' : 'danger'; ?>">
-                                            <?php echo $alumno['habla_ingles'] === 'Sí' ? 'Sí' : 'No'; ?>
-                                        </span>
-                                    </td>
-                                    <td>
-                                        <div class="form-check form-switch">
-                                            <input type="checkbox" 
-                                                hx-post="actions/change_status_alumno.php" 
-                                                hx-vals="js:{
-                                                    id_alumno: '<?= $alumno['id_alumno'] ?>',
-                                                    status: event.target.checked ? '1' : '0'
-                                                }" 
-                                                hx-target="#result_alumno_<?= $alumno['id_alumno'] ?>" 
-                                                hx-trigger="change" 
-                                                hx-swap="outerHTML"
-                                                class="form-check-input" <?= $alumno['status'] === "1" ? 'checked' : '' ?>>
-                                            <label for="result_alumno_<?= $alumno['id_alumno'] ?>" id="result_alumno_<?= $alumno['id_alumno'] ?>">
-                                                    <?= $alumno['status'] === "1" ? '<i class="bi bi-person-fill-check text-success fs-5"></i>' : '<i class="bi bi-person-fill-lock text-danger fs-5"></i>' ?>
-                                            </label>
-                                        </div>
-                                    </td>   
-                                    <td><?php echo date('d-m-Y', strtotime($alumno['fecha_creacion'])); ?></td>
-                                    <td>
-                                        <div class="flex_btns">
-                                            <a href="#"
-                                                hx-get="modales/modal_view_alumno.php"
-                                                hx-target="#modal_container"
-                                                hx-swap="innerHTML"
-                                                hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
-                                                hx-trigger="click">
-                                                <i class="bi bi-box-arrow-up-right"></i>
-                                            </a>
-                                            <a href="#"
-                                                hx-get="modales/modal_update_alumno.php"
-                                                hx-target="#modal_container"
-                                                hx-swap="innerHTML"
-                                                hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
-                                                hx-trigger="click">
-                                                <i class="bi bi-arrow-clockwise"></i>
-                                            </a>
-                                            <a
-                                                href="#"
-                                                hx-get="modales/modal_delete.php"
-                                                hx-target="#modal_container"
-                                                hx-swap="innerHTML"
-                                                hx-vals='{"id": "<?php echo $alumno['id_alumno']; ?>"}'
-                                                hx-trigger="click">
-                                                <i class="bi bi-trash3"></i>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?php } ?>
+                            foreach ($alumnos as $alumno) { 
+                                generarFilaAlumno($alumno);
+                            } ?>
                         </tbody>
                     </table>
                 </div>
