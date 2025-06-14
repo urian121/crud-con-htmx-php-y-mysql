@@ -1,15 +1,17 @@
-<div class="modal fade" id="modal_add_alumno" tabindex="-1" aria-labelledby="modal_add_alumno_title" aria-hidden="true">
+<div class="modal fade" id="modal_add_alumno" tabindex="-1" aria-labelledby="modal_add_alumno_title" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-3" id="modal_add_alumno_title">
+        <h1 class="modal-title fs-3 opacity-75">
           Agregar nuevo alumno
         </h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="POST" hx-post="actions/add_alumno.php" hx-target="#tabla-alumnos tbody" hx-swap="beforeend"
-          hx-on::after-request="if(event.detail.successful) bootstrap.Modal.getInstance(document.getElementById('modal_add_alumno')).hide()">
+        <form method="POST"
+         hx-post="actions/add_alumno.php" 
+         hx-target="#tabla-alumnos tbody"
+         hx-swap="beforeend">
           <div class="mb-3">
             <label for="nombre" class="form-label float-start">Nombre</label>
             <input type="text" name="nombre" class="form-control" id="nombre" required />
@@ -49,10 +51,16 @@
 
           <div class="mb-3 text-start">
             <label for="habla_ingles" class="form-label">Hablas inglés</label>
-            <div class="form-check form-switch">
-              <input class="form-check-input" type="checkbox" role="switch" id="habla_ingles" name="habla_ingles" />
-              <label class="form-check-label" for="habla_ingles">Sí</label>
-            </div>
+              <div class="form-check form-switch">
+              <input class="form-check-input" 
+                type="checkbox" 
+                role="switch" 
+                id="habla_ingles"
+                name="habla_ingles"
+                onchange="this.closest('div').querySelector('.form-check-label').textContent = this.checked ? 'Sí' : 'No'"
+              />
+                <label class="form-check-label px-2 bg-info text-white rounded" for="habla_ingles">No</label>
+              </div>
           </div>
 
           <div class="modal-footer">

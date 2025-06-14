@@ -13,11 +13,11 @@ $infoAlumno = getAlumnoId($servidor, $idAlumno);
   tabindex="-1"
   aria-labelledby="modal_add_alumno_title"
   aria-hidden="true"
->
+  data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-3" id="modal_add_alumno_title">
+        <h1 class="modal-title fs-3 opacity-75 text-center">
           Datos del alumno
         </h1>
         <button

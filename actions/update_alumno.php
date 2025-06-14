@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $sexo = isset($_POST['sexo']) ? $servidor->real_escape_string(trim($_POST['sexo'])) : '';
     $habla_ingles = isset($_POST['habla_ingles']) ? 1 : 0;
 
-    $updateSQL = "UPDATE alumnos SET
+    $updateSQL = "UPDATE tbl_alumnos SET
         nombre = '$nombre',
         email = '$email',
         curso = '$curso',
@@ -31,10 +31,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <td><?php echo $alumnoActualizado['sexo']; ?></td>
             <td><?php echo $alumnoActualizado['curso']; ?></td>
             <td>
-                <span class="badge text-bg-<?php echo $alumnoActualizado['habla_ingles'] === 1 ? 'success' : 'danger'; ?>">
-                    <?php echo $alumnoActualizado['habla_ingles'] === 1 ? 'Sí' : 'No'; ?>
+                <span class="badge text-bg-<?php echo $alumnoActualizado['habla_ingles'] === 'Sí' ? 'success' : 'danger'; ?>">
+                    <?php echo $alumnoActualizado['habla_ingles'] === 'Sí' ? 'Sí' : 'No'; ?>
                 </span>
             </td>
+            <td>
+                <div class="form-check form-switch">
+                    <input type="checkbox" 
+                        hx-post="actions/change_status_alumno.php" 
+                        hx-vals="js:{
+                            id_alumno: '<?= $alumnoActualizado['id_alumno'] ?>',
+                            status: event.target.checked ? '1' : '0'
+                        }" 
+                        hx-target="#result_alumno_<?= $alumnoActualizado['id_alumno'] ?>" 
+                        hx-trigger="change" 
+                        hx-swap="outerHTML"
+                        class="form-check-input" <?= $alumnoActualizado['status'] === "1" ? 'checked' : '' ?>>
+                    <label for="result_alumno_<?= $alumnoActualizado['id_alumno'] ?>" id="result_alumno_<?= $alumnoActualizado['id_alumno'] ?>">
+                            <?= $alumnoActualizado['status'] === "1" ? '<i class="bi bi-person-fill-check text-success fs-5"></i>' : '<i class="bi bi-person-fill-lock text-danger fs-5"></i>' ?>
+                    </label>
+                </div>
+            </td>  
             <td><?php echo date('d-m-Y', strtotime($alumnoActualizado['fecha_creacion'])); ?></td>
             <td>
                 <div class="flex_btns">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost
--- Tiempo de generación: 19-05-2025 a las 03:06:27
+-- Tiempo de generación: 14-06-2025 a las 21:55:54
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,37 +24,44 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `alumnos`
+-- Estructura de tabla para la tabla `tbl_alumnos`
 --
 
-CREATE TABLE `alumnos` (
+CREATE TABLE `tbl_alumnos` (
   `id_alumno` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `email` varchar(150) NOT NULL,
   `sexo` enum('Masculino','Femenino','Otro') NOT NULL,
   `curso` varchar(100) NOT NULL,
   `habla_ingles` tinyint(1) NOT NULL DEFAULT 0,
+  `status` tinyint(1) NOT NULL DEFAULT 0,
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   `fecha_actualizacion` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Volcado de datos para la tabla `alumnos`
+-- Volcado de datos para la tabla `tbl_alumnos`
 --
 
-INSERT INTO `alumnos` (`id_alumno`, `nombre`, `email`, `sexo`, `curso`, `habla_ingles`, `fecha_creacion`, `fecha_actualizacion`) VALUES
-(1, 'urian', 'uriany@gmail.com', 'Femenino', 'HTML', 1, '2025-05-19 00:05:39', '2025-05-19 00:05:39'),
-(23, '564564', 'h546456ola@gmail.com', 'Femenino', 'JS', 0, '2025-05-19 01:00:47', '2025-05-19 01:00:47'),
-(25, '5646456', 'urianw56456ebdeveloper@gmail.com', 'Masculino', 'REACT', 0, '2025-05-19 01:02:10', '2025-05-19 01:02:10');
+INSERT INTO `tbl_alumnos` (`id_alumno`, `nombre`, `email`, `sexo`, `curso`, `habla_ingles`, `status`, `fecha_creacion`, `fecha_actualizacion`) VALUES
+(1, 'Urian viera', 'uriany@gmail.com', 'Masculino', 'REACT', 1, 1, '2025-05-19 00:05:39', '2025-06-14 18:58:58'),
+(29, 'Braudin', 'iamfullstackdev2023@gmail.com', 'Femenino', 'JS', 0, 1, '2025-05-22 02:00:18', '2025-06-14 18:38:33'),
+(71, 'Midudev', 'Midudev@gmail.com', 'Masculino', 'JS', 1, 1, '2025-05-22 02:00:18', '2025-06-14 19:55:35'),
+(72, 'Fernando', 'fernando@gmail.com', 'Masculino', 'JS', 1, 0, '2025-05-22 02:00:18', '2025-06-14 19:55:02'),
+(73, 'Luis', 'uri6756any@gmail.com', 'Masculino', 'REACT', 1, 1, '2025-05-19 00:05:39', '2025-06-14 18:52:23'),
+(75, 'Felipe', 'felipe@gmail.com', 'Masculino', 'JS', 1, 1, '2025-06-14 16:51:37', '2025-06-14 19:53:35'),
+(76, 'Carlos', 'carlos@gmail.com', 'Masculino', 'PHP', 1, 1, '2025-06-14 16:52:58', '2025-06-14 19:53:54'),
+(77, 'Brenda', 'brenda@gmail.com', 'Femenino', 'REACT', 1, 0, '2025-06-14 16:54:35', '2025-06-14 19:54:23'),
+(78, 'Camilo', 'camilo@gmail.com', 'Masculino', 'HTML', 1, 0, '2025-06-14 17:00:03', '2025-06-14 19:54:42');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `alumnos`
+-- Indices de la tabla `tbl_alumnos`
 --
-ALTER TABLE `alumnos`
+ALTER TABLE `tbl_alumnos`
   ADD PRIMARY KEY (`id_alumno`),
   ADD UNIQUE KEY `email` (`email`);
 
@@ -63,10 +70,10 @@ ALTER TABLE `alumnos`
 --
 
 --
--- AUTO_INCREMENT de la tabla `alumnos`
+-- AUTO_INCREMENT de la tabla `tbl_alumnos`
 --
-ALTER TABLE `alumnos`
-  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+ALTER TABLE `tbl_alumnos`
+  MODIFY `id_alumno` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

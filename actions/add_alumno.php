@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sexo = $servidor->real_escape_string(trim($_POST['sexo']));
     $habla_ingles = isset($_POST['habla_ingles']) && $_POST['habla_ingles'] == '1' ? 1 : 0;
     
-    $insertSQL = "INSERT INTO alumnos (nombre, email, curso, sexo, habla_ingles) VALUES ('$nombre', '$email', '$curso', '$sexo', '$habla_ingles')";
+    $insertSQL = "INSERT INTO tbl_alumnos (nombre, email, curso, sexo, habla_ingles) VALUES ('$nombre', '$email', '$curso', '$sexo', '$habla_ingles')";
     
     if ($servidor->query($insertSQL)) {
         // Obtener el ID del alumno recién insertado

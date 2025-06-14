@@ -11,11 +11,11 @@ $infoAlumno = getAlumnoId($servidor, $idAlumno);
   id="modal_update_alumno"
   tabindex="-1"
   aria-labelledby="modal_update_alumno_title"
-  aria-hidden="true">
+  aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-3" id="modal_add_alumno_title">
+        <h1 class="modal-title fs-3 opacity-75 text-center">
           Actualizar datos del alumno
         </h1>
         <button
@@ -28,7 +28,13 @@ $infoAlumno = getAlumnoId($servidor, $idAlumno);
         <form
           hx-post="actions/update_alumno.php"
           hx-target="#alumno_<?php echo $idAlumno; ?>"
-          hx-swap="outerHTML">
+          hx-swap="outerHTML"
+          hx-on::after-request="
+          if (event.detail.successful) {
+            showToast.success('Alumno actualizado exitosamente 🎉');
+          } else {
+            showToast.error('Error al actualizar');
+          }">
           <input type="text" name="id" value="<?php echo $idAlumno; ?>" hidden>
           <div class="mb-3">
             <label for="nombre" class="form-label float-start">Nombre</label>
@@ -105,7 +111,7 @@ $infoAlumno = getAlumnoId($servidor, $idAlumno);
                 role="switch"
                 id="habla_ingles"
                 name="habla_ingles"
-                <?php if ($infoAlumno['habla_ingles'] == 1) echo 'checked'; ?> />
+                <?php if ($infoAlumno['habla_ingles'] == 'Sí') echo 'checked'; ?> />
               <label class="form-check-label" for="habla_ingles">Sí</label>
             </div>
           </div>
