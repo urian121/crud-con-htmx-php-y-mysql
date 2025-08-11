@@ -1,4 +1,7 @@
-// Inicializar los modales después de que HTMX cargue el contenido
+/*
+* El evento htmx:afterSwap en HTMX se dispara justo después de que el contenido devuelto por el servidor ya fue insertado (swapeado) en el DOM.
+* Aquí el evento htmx:afterSwap para detectar cuándo HTMX acaba de insertar contenido nuevo y ese contenido corresponde a un modal de Bootstrap.
+*/
 htmx.on("htmx:afterSwap", function(evt) {
     // Verificar si el contenido cargado contiene un modal
     if (evt.detail.target.id === 'modal_container') {
