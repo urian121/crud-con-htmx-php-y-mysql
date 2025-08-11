@@ -1,4 +1,4 @@
-# CRUD con HTMX, PHP y MySQL
+# Crea un CRUD rápido y sin recargar la página con HTMX, PHP y MySQL
 
 ![Demo CRUD con HTMX, PHP y MySQL](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/crud-con-htmx-php-y-mysql.gif)
 
