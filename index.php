@@ -47,7 +47,6 @@
 
             <?php
             require_once("settings/settings.php");
-            require_once("settings/conn.php");
             include("actions/functions.php"); ?>
 
             <div class="col-md-12">
