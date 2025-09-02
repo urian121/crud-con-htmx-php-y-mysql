@@ -35,7 +35,7 @@ Este proyecto es un CRUD (Create, Read, Update, Delete) que implementa operacion
 
 ## Instalación
 1. Clonar el repositorio
-2. Configurar la base de datos en `settings/conn.php`
+2. Configurar la base de datos en `settings/settings.php`
 3. Importar el esquema de la base de datos
 4. Configurar el servidor web
 
