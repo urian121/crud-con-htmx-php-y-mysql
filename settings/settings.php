@@ -15,13 +15,12 @@ define('DB_USER', 'root');
 define('DB_PASSWORD', '4825');
 
 
-// DEFINIR RUTAS ABSOLUTAS
-$projectPath = str_replace('\\', '/', __DIR__);
-define('BASE_PATH_HOME', $projectPath);
-define('BASE_PATH_COMPONENTS', BASE_PATH_HOME . 'components');
-define('BASE_PATH_MIDDLEWARE', BASE_PATH_HOME . 'middlewares');
-define('CONTROLLER_PATH', BASE_PATH_HOME . 'controllers');
-define('SETTINGS_BD', BASE_PATH_HOME . 'settings/settingBD.php');
-define('FUNCTIONS_PATH', BASE_PATH_HOME . 'functions/');
-define('ACTION_LOGIN', 'login.php');
-define('ACTION_LOGOUT', 'auth/logout.php');
+
+$servidor = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+if ($servidor->connect_error) {
+    die("Error de conexión: " . $servidor->connect_error);
+}
+
+if (!$servidor->set_charset("utf8mb4")) {
+    die("Error cargando el conjunto de caracteres utf8mb4: " . $servidor->error);
+}
