@@ -1,7 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     require_once('../settings/settings.php');
-    require_once('../settings/conn.php');
     require_once('functions.php');
     
     // Sanitizar los datos de entrada
