@@ -1,7 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'DELETE') {
     require_once('../settings/settings.php');
-    require_once('../settings/conn.php');
 
     $id = $_GET['id'] ?? null;
 
