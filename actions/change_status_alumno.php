@@ -1,7 +1,6 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once('../settings/settings.php');
-    require_once('../settings/conn.php');
 
     $id = trim($_POST['id_alumno']);
     $status = trim($_POST['status']);
