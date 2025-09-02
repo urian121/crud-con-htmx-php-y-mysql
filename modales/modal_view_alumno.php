@@ -1,6 +1,5 @@
 <?php
 require_once("../settings/settings.php");
-require_once("../settings/conn.php");
 include("../actions/functions.php");
 
 $idAlumno = isset($_GET['id']) ? $_GET['id'] : null;
